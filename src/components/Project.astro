@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+import placeholderImage from "../assets/placeholder-image.png";
+
+interface Props {
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+const { title, description, tags } = Astro.props;
+---
+
+<div class="flex flex-row space-x-6">
+  <Image src={placeholderImage} alt="Placeholder" class="w-50" />
+  <div class="flex flex-col justify-center">
+    <h3 class="text-xl">{title}</h3>
+    <p>{description}</p>
+
+    <ul class="flex flex-row space-x-2 mt-2">
+      {
+        tags.map((tag) => {
+          return <li class="text-xs p-2 border rounded-2xl">{tag}</li>;
+        })
+      }
+    </ul>
+  </div>
+</div>

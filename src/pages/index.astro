@@ -1,11 +1,144 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Iridescence from "../components/Iridescence";
+import Experince from "../components/Experince.astro";
+import Noise from "../components/Noise.astro";
+import Typewriter from "../components/Typewriter";
+import Project from "../components/Project.astro";
+
+import linkedinLogo from "../assets/linkedin-logo.svg";
+import instagramLogo from "../assets/instagram-logo.svg";
+import githubLogo from "../assets/github-logo.svg";
 ---
 
 <Layout>
-	<Welcome />
+  <div id="container" class="h-full">
+    <div class="blur-[100px] fixed top-0 left-0 w-full h-full -z-2">
+      <Iridescence
+        color={[1, 1, 1]}
+        mouseReact={false}
+        amplitude={0.1}
+        speed={0.1}
+        client:load
+      />
+    </div>
+    <Noise className="fixed top-0 left-0 w-full h-full -z-1" />
+    <main class="w-full flex justify-center mt-25">
+      <div class="flex w-1/2 items-start flex-col justify-start space-y-22">
+        <!-- ABOUT SECTION -->
+        <div>
+          <h1 class="text-3xl font-bold mb-2 text-primary">
+            <Typewriter speed={75} text="I\\\'m Cameron Lopez" client:load />
+          </h1>
+          <h2 class="text-xl mb-4">Software Developer</h2>
+          <p class="w-[92%]">
+            I build accessible, user-friendly web applications with modern
+            technologies. Focused on creating clean, efficient code and
+            intuitive user experiences. Currently working at Tech Company Inc.
+            where I lead frontend development for our flagship product.
+          </p>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div>
+          <h2 class="text-2xl mb-6">Experience</h2>
+          <div class="space-y-6">
+            <Experince
+              title="Engineering Technician II"
+              company="Tesla"
+              timeline="July 2024 - Present"
+              items={[
+                "Developed interactive dashboards to visualize data from MySQL, tracking KPIs, managing headcount, and monitoring production line downtime",
+                "Created an internal all-in-one training website to streamline tracking, scheduling, and sign-up processes, using TypeScript, Remix, TailwindCSS, Drizzle, Git, and Node.js",
+                'Developed a "toolbox" website enabling efficient use of internal Tesla APIs for technician operations, using React Router, TypeScript, TailwindCSS, Git, and Node.js',
+              ]}
+            />
+            <Experince
+              title="Engineering Technician"
+              company="Tesla"
+              timeline="August 2023 - July 2024"
+              items={[
+                "Developed a Microsoft Teams bot to automate the tracking of daily technician tasks and resourceallocation, utilizing Git, MySQL, TypeScript, Microsoft Bot FrameworkSDK, and Node.js.",
+                "Deployed internal serverless applications using Docker and Kubernetes for scalable, efficient hosting.",
+                "Managed project progress and tracked work hours through Jira tickets, ensuring alignment with deadlines and objectives.",
+              ]}
+            />
+          </div>
+        </div>
+
+        <!-- SKILLS -->
+        <!-- <div>
+          <h2 class="text-2xl mb-6">Skills</h2>
+          <Skill
+            title="Languages"
+            items={["HTML", "CSS", "TypeScript", "MySQL"]}
+          />
+          <Skill
+            title="Frameworks"
+            items={["React", "Remix/React Router", "Astro", "Next.JS"]}
+          />
+          <Skill
+            title="Frameworks"
+            items={["Next.JS", "Remix/React Router", "Astro"]}
+          />
+        </div> -->
+
+        <!-- Projects -->
+        <div>
+          <h2 class="text-2xl mb-6">Projects</h2>
+
+          <div class="flex flex-col space-y-6">
+            <Project
+              title="Film Picker"
+              description="A web-app that picks and tracks flims for you. It helps you find a film to watch based on your preferences and allows you to keep track of the films that you do watch. "
+              tags={["TypeScript", "Next.JS", "TailwindCSS", "Drizzle"]}
+            />
+            <Project
+              title="TreeHouse"
+              description="A privacy focused social media platform that allows you to anonymously connect with others around you based on GPS."
+              tags={["TypeScript", "Next.JS", "TailwindCSS", "Drizzle"]}
+            />
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="flex flex-col justify-center w-full h-45 items-center">
+          <h2 class="text-3xl mb-14">I'd love to work with you!</h2>
+
+          <button class="border rounded-2xl p-2">Contact me</button>
+        </div>
+
+        <!-- Footer -->
+        <div class="flex flex-row h-14 w-full justify-between items-center">
+          <div class="flex flex-row space-x-2">
+            <a href="https://www.linkedin.com/in/camahlopez/" target="_blank">
+              <Image
+                src={linkedinLogo}
+                alt="Cameron Lopez's Linkedin profile"
+                width={20}
+              />
+            </a>
+            <a href="https://github.com/cahlopez" target="_blank">
+              <Image
+                src={githubLogo}
+                alt="Cameron Lopez's Github profile"
+                width={20}
+              />
+            </a>
+            <a href="https://instagram.com/_cameronlopez" target="_blank">
+              <Image
+                src={instagramLogo}
+                alt="Cameron Lopez's Instagram profile"
+                width={20}
+              />
+            </a>
+          </div>
+
+          <p>Built with Astro and TailwindCSS</p>
+        </div>
+      </div>
+    </main>
+  </div>
 </Layout>
