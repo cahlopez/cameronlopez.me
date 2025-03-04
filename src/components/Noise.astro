@@ -12,12 +12,12 @@ const { className } = Astro.props;
     <filter id="noiseFilter">
       <feTurbulence
         type="fractalNoise"
-        baseFrequency="0.8"
+        baseFrequency="0.6"
         numOctaves="2"
         stitchTiles="stitch"></feTurbulence>
       <feColorMatrix type="saturate" values="0"></feColorMatrix>
       <feComponentTransfer>
-        <feFuncA type="linear" slope="0.7"></feFuncA>
+        <feFuncA type="linear" slope="0.3"></feFuncA>
       </feComponentTransfer>
     </filter>
   </defs>

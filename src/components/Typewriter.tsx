@@ -1,3 +1,4 @@
+import { animate } from "motion/mini";
 import React, { useState, useEffect, useRef } from "react";
 
 interface TypewriterProps {
@@ -5,7 +6,6 @@ interface TypewriterProps {
   speed?: number;
   delay?: number;
   cursor?: boolean;
-  onComplete?: () => void;
   className?: string;
 }
 
@@ -14,7 +14,6 @@ const Typewriter: React.FC<TypewriterProps> = ({
   speed = 50,
   delay = 0,
   cursor = true,
-  onComplete,
   className = "",
 }: TypewriterProps) => {
   const [displayedText, setDisplayedText] = useState("");
@@ -51,9 +50,17 @@ const Typewriter: React.FC<TypewriterProps> = ({
       // Schedule next character
       timeoutRef.current = setTimeout(typeNextChar, speed);
     } else {
-      if (onComplete) {
-        onComplete();
-      }
+      const elements = document.querySelectorAll("#reveal");
+
+      const revealContent = (elements: NodeList) => {
+        elements.forEach((element) => {
+          (element as Element).classList.remove("hidden");
+
+          animate(element as Element, { opacity: 1 }, { duration: 2 });
+        });
+      };
+
+      revealContent(elements);
     }
   };
 

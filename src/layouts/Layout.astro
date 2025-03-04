@@ -1,4 +1,5 @@
 ---
+import ThemeIcon from "../components/ThemeIcon.astro";
 import "../styles/global.css";
 ---
 
@@ -8,10 +9,22 @@ import "../styles/global.css";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/theme-toggles@4.10.1/css/{toggle name}.min.css"
+    />
+    <link
+      rel="preload"
+      href="/fonts/Mona-Sans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>Cameron Lopez</title>
   </head>
   <body class="m-0 w-full h-full">
+    <ThemeIcon />
     <slot />
   </body>
 </html>

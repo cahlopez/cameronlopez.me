@@ -8,10 +8,17 @@ import Noise from "../components/Noise.astro";
 import Typewriter from "../components/Typewriter";
 import Project from "../components/Project.astro";
 
-import linkedinLogo from "../assets/linkedin-logo.svg";
-import instagramLogo from "../assets/instagram-logo.svg";
-import githubLogo from "../assets/github-logo.svg";
+import LinkedinLogo from "../assets/linkedin-logo.svg";
+import InstagramLogo from "../assets/instagram-logo.svg";
+import GithubLogo from "../assets/github-logo.svg";
+
+import comingSoon from "../assets/comingsoon.png"
+
 ---
+
+<script>
+  import { animate } from "motion/mini";
+</script>
 
 <Layout>
   <div id="container" class="h-full">
@@ -24,16 +31,22 @@ import githubLogo from "../assets/github-logo.svg";
         client:load
       />
     </div>
-    <Noise className="fixed top-0 left-0 w-full h-full -z-1" />
-    <main class="w-full flex justify-center mt-25">
-      <div class="flex w-1/2 items-start flex-col justify-start space-y-22">
+    <Noise
+      className=" bg-background dark:bg-background opacity-20 dark:opacity-70 transition-all duration-700 fixed top-0 left-0 w-full h-full -z-1"
+    />
+    <main class="w-full flex justify-center">
+      <div
+        class="flex w-1/2 items-start mt-25 flex-col justify-start space-y-22"
+      >
         <!-- ABOUT SECTION -->
         <div>
           <h1 class="text-3xl font-bold mb-2 text-primary">
-            <Typewriter speed={75} text="I\\\'m Cameron Lopez" client:load />
+            <Typewriter speed={50} text="I\\\'m Cameron Lopez" client:load />
           </h1>
-          <h2 class="text-xl mb-4">Software Developer</h2>
-          <p class="w-[92%]">
+          <h2 id="reveal" class="text-xl mb-4 text-secondary opacity-0">
+            Full-stack Developer
+          </h2>
+          <p id="reveal" class="w-[92%] text-muted opacity-0">
             I build accessible, user-friendly web applications with modern
             technologies. Focused on creating clean, efficient code and
             intuitive user experiences. Currently working at Tech Company Inc.
@@ -42,8 +55,8 @@ import githubLogo from "../assets/github-logo.svg";
         </div>
 
         <!-- EXPERIENCE -->
-        <div>
-          <h2 class="text-2xl mb-6">Experience</h2>
+        <div id="reveal" class="opacity-0 hidden">
+          <h2 class="text-2xl mb-6 text-primary">Experience</h2>
           <div class="space-y-6">
             <Experince
               title="Engineering Technician II"
@@ -68,75 +81,61 @@ import githubLogo from "../assets/github-logo.svg";
           </div>
         </div>
 
-        <!-- SKILLS -->
-        <!-- <div>
-          <h2 class="text-2xl mb-6">Skills</h2>
-          <Skill
-            title="Languages"
-            items={["HTML", "CSS", "TypeScript", "MySQL"]}
-          />
-          <Skill
-            title="Frameworks"
-            items={["React", "Remix/React Router", "Astro", "Next.JS"]}
-          />
-          <Skill
-            title="Frameworks"
-            items={["Next.JS", "Remix/React Router", "Astro"]}
-          />
-        </div> -->
-
-        <!-- Projects -->
-        <div>
-          <h2 class="text-2xl mb-6">Projects</h2>
+        <!-- PROJECTS -->
+        <div id="reveal" class="opacity-0 hidden">
+          <h2 class="text-2xl mb-6 text-primary">Projects</h2>
 
           <div class="flex flex-col space-y-6">
             <Project
               title="Film Picker"
+              image={{location: comingSoon, alt: "Coming soon image"}}
               description="A web-app that picks and tracks flims for you. It helps you find a film to watch based on your preferences and allows you to keep track of the films that you do watch. "
-              tags={["TypeScript", "Next.JS", "TailwindCSS", "Drizzle"]}
+              tags={["TypeScript", "React Router", "TailwindCSS", "Drizzle"]}
             />
             <Project
               title="TreeHouse"
+              image={{location: comingSoon, alt: "Coming soon image"}}
               description="A privacy focused social media platform that allows you to anonymously connect with others around you based on GPS."
-              tags={["TypeScript", "Next.JS", "TailwindCSS", "Drizzle"]}
+             
             />
           </div>
         </div>
 
         <!-- Contact -->
-        <div class="flex flex-col justify-center w-full h-45 items-center">
-          <h2 class="text-3xl mb-14">I'd love to work with you!</h2>
+        <div
+          id="reveal"
+          class="flex flex-col justify-center w-full h-45 items-center opacity-0 hidden"
+        >
+          <h2 class="text-3xl mb-14 text-primary">
+            I'd love to work with you!
+          </h2>
 
-          <button class="border rounded-2xl p-2">Contact me</button>
+          <a href="mailto:hello@cameronlopez.me"
+            ><span
+              class="p-2 rounded-2xl bg-radial from-violet-300/60 to-pink-300/60 text-secondary"
+              >Contact me</span
+            ></a
+          >
         </div>
 
         <!-- Footer -->
-        <div class="flex flex-row h-14 w-full justify-between items-center">
-          <div class="flex flex-row space-x-2">
+        <div
+          id="reveal"
+          class="flex flex-row h-14 w-full justify-between items-center opacity-0 hidden"
+        >
+          <div class="flex flex-row space-x-2 text-primary">
             <a href="https://www.linkedin.com/in/camahlopez/" target="_blank">
-              <Image
-                src={linkedinLogo}
-                alt="Cameron Lopez's Linkedin profile"
-                width={20}
-              />
+              <LinkedinLogo width={20} height={20} />
             </a>
             <a href="https://github.com/cahlopez" target="_blank">
-              <Image
-                src={githubLogo}
-                alt="Cameron Lopez's Github profile"
-                width={20}
-              />
+              <GithubLogo width={20} height={20} />
             </a>
             <a href="https://instagram.com/_cameronlopez" target="_blank">
-              <Image
-                src={instagramLogo}
-                alt="Cameron Lopez's Instagram profile"
-                width={20}
-              />
+              <InstagramLogo width={20} height={20} />
             </a>
           </div>
 
-          <p>Built with Astro and TailwindCSS</p>
+          <p class="text-primary">Built with Astro and TailwindCSS</p>
         </div>
       </div>
     </main>
