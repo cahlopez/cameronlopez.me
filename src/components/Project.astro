@@ -4,7 +4,7 @@ import placeholderImage from "../assets/placeholder-image.png";
 
 interface Props {
   title: string;
-  image: {location: ImageMetadata, alt: string};
+  image: { location: ImageMetadata; alt: string };
   description: string;
   tags?: string[];
 }
@@ -18,17 +18,18 @@ const { title, description, tags, image } = Astro.props;
     <h3 class="text-xl text-secondary">{title}</h3>
     <p class="text-muted">{description}</p>
 
-    {tags && <ul class="flex flex-row space-x-2 mt-2">
-      {
-        tags.map((tag) => {
-          return (
-            <li class="text-xs p-2 rounded-2xl bg-radial from-violet-300/60 to-pink-300/60 text-secondary">
-              {tag}
-            </li>
-          );
-        })
-      }
-    </ul>
+    {
+      tags && (
+        <ul class="flex flex-row space-x-2 mt-2">
+          {tags.map((tag) => {
+            return (
+              <li class="text-xs p-2 rounded-2xl bg-radial from-violet-300/60 to-pink-300/60 text-secondary">
+                {tag}
+              </li>
+            );
+          })}
+        </ul>
+      )
     }
   </div>
 </div>
