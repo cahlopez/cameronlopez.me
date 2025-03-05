@@ -1,6 +1,4 @@
 ---
-import { Image } from "astro:assets";
-
 import Layout from "../layouts/Layout.astro";
 import Iridescence from "../components/Iridescence";
 import Experince from "../components/Experince.astro";
@@ -36,16 +34,18 @@ import comingSoon from "../assets/comingsoon.png";
         <!-- ABOUT SECTION -->
         <div>
           <h1 class="text-3xl font-bold mb-2 text-primary">
-            <Typewriter speed={50} text="I\\\'m Cameron Lopez" client:load />
+            <Typewriter speed={50} text="H\\i, I'm Cameron Lopez" client:load />
           </h1>
           <h2 id="reveal" class="text-xl mb-4 text-secondary opacity-0">
             Full-stack Developer
           </h2>
-          <p id="reveal" class="w-[92%] text-muted opacity-0">
-            I build accessible, user-friendly web applications with modern
-            technologies. Focused on creating clean, efficient code and
-            intuitive user experiences. Currently working at Tech Company Inc.
-            where I lead frontend development for our flagship product.
+          <p id="reveal" class="w-full text-muted opacity-0">
+            I build user-friendly apps using modern Javascript technologies. I'm
+            very passionate about web design and programming; leveraging my
+            skills to create things that improve the quality of life for myself
+            and others. Outside that, running is a big part of my life but I
+            also enjoy reading and snowboarding in my free time and I'm
+            currently working at Tesla as an Engineering Technician!
           </p>
         </div>
 
@@ -80,9 +80,10 @@ import comingSoon from "../assets/comingsoon.png";
         <div id="reveal" class="opacity-0 hidden">
           <h2 class="text-2xl mb-6 text-primary">Projects</h2>
 
-          <div class="flex flex-col space-y-6">
+          <div class="flex flex-col space-y-10">
             <Project
               title="Film Picker"
+              link="http://flimpicker.com/"
               image={{ location: comingSoon, alt: "Coming soon image" }}
               description="A web-app that picks and tracks flims for you. It helps you find a film to watch based on your preferences and allows you to keep track of the films that you do watch. "
               tags={["TypeScript", "React Router", "TailwindCSS", "Drizzle"]}
@@ -106,7 +107,7 @@ import comingSoon from "../assets/comingsoon.png";
 
           <a href="mailto:hello@cameronlopez.me"
             ><span
-              class="p-2 rounded-2xl bg-radial from-violet-300/60 to-pink-300/60 text-secondary"
+              class="p-2 rounded-2xl bg-radial from-violet-300/60 to-pink-300/60 text-secondary hover:from-violet-400/60 hover:to-pink-400/60 transition-colors duration-100"
               >Contact me</span
             ></a
           >

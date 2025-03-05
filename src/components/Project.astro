@@ -1,35 +1,45 @@
 ---
 import { Image } from "astro:assets";
-import placeholderImage from "../assets/placeholder-image.png";
+import ExternalLink from "../assets/external-link.svg";
 
 interface Props {
   title: string;
+  link?: string;
   image: { location: ImageMetadata; alt: string };
   description: string;
   tags?: string[];
 }
 
-const { title, description, tags, image } = Astro.props;
+const { title, link, description, tags, image } = Astro.props;
 ---
 
-<div class="flex flex-row space-x-6">
-  <Image src={image.location} alt={image.alt} class="w-50" />
-  <div class="flex flex-col justify-center">
-    <h3 class="text-xl text-secondary">{title}</h3>
-    <p class="text-muted">{description}</p>
-
-    {
-      tags && (
-        <ul class="flex flex-row space-x-2 mt-2">
-          {tags.map((tag) => {
-            return (
-              <li class="text-xs p-2 rounded-2xl bg-radial from-violet-300/60 to-pink-300/60 text-secondary">
-                {tag}
-              </li>
-            );
-          })}
-        </ul>
-      )
-    }
+<a href={link} class="relative group">
+  <div
+    class="absolute -inset-x-4 -inset-y-4 w-full z-0 rounded-xl group-hover:bg-violet-300/40 group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"
+  >
   </div>
-</div>
+  <div class="relative flex flex-row space-x-6 z-1">
+    <Image src={image.location} alt={image.alt} class="w-50" />
+    <div class="flex flex-col justify-center">
+      <div class="flex text-secondary items-center space-x-1">
+        <h3 class="text-xl">{title}</h3>
+        {link && <ExternalLink width={15} height={15} />}
+      </div>
+      <p class="text-muted">{description}</p>
+
+      {
+        tags && (
+          <ul class="flex flex-row space-x-2 mt-2">
+            {tags.map((tag) => {
+              return (
+                <li class="text-xs p-2 rounded-2xl bg-radial from-violet-300/60 to-pink-300/60 text-secondary">
+                  {tag}
+                </li>
+              );
+            })}
+          </ul>
+        )
+      }
+    </div>
+  </div>
+</a>
