@@ -13,7 +13,7 @@ interface Props {
 const { title, link, description, tags, image } = Astro.props;
 ---
 
-<a href={link} class="relative group">
+<a href={link} target="_blank" class="relative group">
   <div
     class="absolute -inset-x-4 -inset-y-4 w-full z-0 rounded-lg group-hover:bg-violet-300/40 group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"
   >
