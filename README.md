@@ -1,48 +1,93 @@
-# Astro Starter Kit: Basics
+# Cameron Lopez - Personal Portfolio
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+Welcome to my personal portfolio website! This is where I showcase my work, experience, and projects as a full-stack developer.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+### Key Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- **Interactive Design**: Smooth animations and transitions using Motion library
+- **Responsive Layout**: Optimized for all device sizes
+- **Dark/Light Theme**: Dynamic theme switching capability
+- **Typewriter Effect**: Engaging text animations
+- **Iridescent Background**: Custom animated background effects
+- **Project Showcase**: Highlighting my key projects and experience
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 🛠️ Tech Stack
 
-## 🚀 Project Structure
+- **Framework**: [Astro](https://astro.build/) - Static site generator
+- **Styling**: [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework
+- **React**: Interactive components and animations
+- **TypeScript**: Type-safe development
+- **Motion**: Smooth animations and transitions
+- **Deployment**: Vercel with analytics
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📁 Project Structure
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
+│   ├── favicon.ico
+│   └── fonts/
+│       └── Mona-Sans.woff2
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/           # Images and static assets
+│   ├── components/       # Reusable UI components
+│   ├── layouts/          # Page layouts
+│   ├── pages/            # Main page content
+│   ├── styles/           # Global styles
+│   └── utils/            # Helper functions
+├── astro.config.mts      # Astro configuration
+├── package.json          # Dependencies and scripts
+└── tsconfig.json         # TypeScript configuration
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🚀 Getting Started
 
-## 🧞 Commands
+### Prerequisites
 
-All commands are run from the root of the project, from a terminal:
+- Node.js (v18 or higher)
+- pnpm (recommended) or npm
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm install`         | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## 🎨 Design Features
 
-## 👀 Want to learn more?
+- **Iridescent Background**: Custom animated background using OGL for WebGL effects
+- **Noise Texture**: Subtle noise overlay for texture
+- **Smooth Animations**: Framer Motion for page transitions and micro-interactions
+- **Typography**: Custom font (Mona Sans) for enhanced readability
+- **Color Scheme**: Carefully crafted color palette with dark/light mode support
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📱 Responsive Design
+
+The portfolio is fully responsive and optimized for:
+
+- Desktop (1200px+)
+- Tablet (768px - 1199px)
+- Mobile (320px - 767px)
+
+## 🔧 Development
+
+### Code Quality
+
+- **Prettier**: Code formatting
+- **Husky**: Git hooks for pre-commit formatting
+- **TypeScript**: Type safety throughout the project
+
+### Performance
+
+- **Astro**: Static site generation for optimal performance
+- **Image Optimization**: Sharp for image processing
+- **Analytics**: Vercel Analytics for performance monitoring
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contact
+
+- **Email**: hello@cameronlopez.me
+- **LinkedIn**: [Cameron Lopez](https://www.linkedin.com/in/camahlopez/)
+- **GitHub**: [@cahlopez](https://github.com/cahlopez)
+- **Instagram**: [@\_cameronlopez](https://instagram.com/_cameronlopez)
+
+---
+
+Built with ❤️ using [Astro](https://astro.build) and [TailwindCSS](https://tailwindcss.com)
