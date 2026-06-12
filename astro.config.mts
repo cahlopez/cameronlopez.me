@@ -7,9 +7,6 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://cameronlopez.me",
 
-  security: {
-    csp: true,
-  },
   vite: {
     plugins: [tailwindcss()],
   },
