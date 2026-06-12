@@ -5,47 +5,76 @@ import ExternalLink from "../assets/external-link.svg";
 interface Props {
   title: string;
   link?: string;
-  image: { location: ImageMetadata; alt: string };
+  image?: { location: ImageMetadata; alt: string };
   description: string;
   tags?: string[];
 }
 
 const { title, link, description, tags, image } = Astro.props;
+const Tag = link ? "a" : "div";
+const linkProps = link
+  ? { href: link, target: "_blank", rel: "noopener noreferrer" }
+  : {};
 ---
 
-<a href={link} target="_blank" class="relative group">
-  <div
-    class="transition-colors absolute -inset-x-4 -inset-y-4 w-full z-0 rounded-lg group-hover:bg-violet-300/40 group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"
-  >
-  </div>
-  <div
-    class="relative flex flex-col lg:flex-row space-y-4 lg:space-y-0 space-x-6 z-1 max-w-[95%]"
-  >
-    <Image
-      src={image.location}
-      alt={image.alt}
-      class="w-50 max-h-30 rounded-lg"
-    />
-    <div class="flex flex-col justify-center space-y-1">
-      <div class="flex text-secondary items-center space-x-1">
-        <h3 class="text-xl">{title}</h3>
-        {link && <ExternalLink width={15} height={15} />}
-      </div>
-      <p class="text-muted">{description}</p>
+<Tag
+  {...linkProps}
+  class="group border-border flex flex-col gap-5 border-t py-6 first:border-t-0 first:pt-0 sm:flex-row sm:items-center sm:gap-6"
+>
+  {
+    image && (
+      <div class="group/thumb relative w-full shrink-0 sm:w-60">
+        <Image
+          src={image.location}
+          alt={image.alt}
+          widths={[240, 480, 720]}
+          sizes="(min-width: 640px) 240px, 100vw"
+          loading="lazy"
+          class="border-border w-full rounded-lg border object-cover"
+        />
 
+        <div class="bg-background/70 pointer-events-none fixed inset-0 z-50 flex items-center justify-center p-6 opacity-0 backdrop-blur-sm transition-opacity duration-300 ease-out group-hover/thumb:opacity-100 group-hover/thumb:delay-300">
+          <Image
+            src={image.location}
+            alt={image.alt}
+            widths={[768, 1280, 1920]}
+            sizes="(max-width: 60rem) 92vw, 56rem"
+            loading="lazy"
+            class="border-border max-h-[90vh] w-[min(56rem,92vw)] rounded-xl border object-contain shadow-2xl transition-transform duration-300 ease-out motion-safe:scale-75 motion-safe:group-hover/thumb:scale-100 motion-safe:group-hover/thumb:delay-300"
+          />
+        </div>
+      </div>
+    )
+  }
+
+  <div class="min-w-0 flex-1">
+    <div class="flex items-baseline gap-1.5">
+      <h3
+        class="text-primary group-hover:text-accent text-base font-medium transition-colors"
+      >
+        {title}
+      </h3>
       {
-        tags && (
-          <ul class="flex flex-row flex-wrap space-x-2 space-y-2 sm-space-y-0 mt-2">
-            {tags.map((tag) => {
-              return (
-                <li class="text-xs p-2 h-fit w-fit rounded-2xl bg-radial from-violet-300/60 to-pink-300/60 text-secondary">
-                  {tag}
-                </li>
-              );
-            })}
-          </ul>
+        link && (
+          <ExternalLink
+            width={13}
+            height={13}
+            class="text-muted group-hover:text-accent transition-colors"
+          />
         )
       }
     </div>
+
+    <p class="text-muted mt-1.5 text-sm leading-relaxed">{description}</p>
+
+    {
+      tags && (
+        <ul class="mt-3 flex flex-row flex-wrap gap-x-3 gap-y-1">
+          {tags.map((tag) => (
+            <li class="text-muted font-mono text-xs">{tag}</li>
+          ))}
+        </ul>
+      )
+    }
   </div>
-</a>
+</Tag>

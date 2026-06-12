@@ -1,26 +1,23 @@
 # Cameron Lopez - Personal Portfolio
 
-Welcome to my personal portfolio website! This is where I showcase my work, experience, and projects as a full-stack developer.
+My personal portfolio: a clean, minimal, typography-focused site showcasing my
+work and experience as a full-stack developer.
 
-### Key Features
+## Features
 
-- **Interactive Design**: Smooth animations and transitions using Motion library
-- **Responsive Layout**: Optimized for all device sizes
-- **Dark/Light Theme**: Dynamic theme switching capability
-- **Typewriter Effect**: Engaging text animations
-- **Iridescent Background**: Custom animated background effects
-- **Project Showcase**: Highlighting my key projects and experience
+- **Minimal design**: Near-monochrome palette with a single accent, lots of whitespace
+- **Light/Dark theme**: System-aware with a manual toggle (no flash on load)
+- **Subtle motion**: Accessible scroll-reveal animations (respects `prefers-reduced-motion`)
+- **Responsive**: Optimized for all device sizes
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Framework**: [Astro](https://astro.build/) - Static site generator
 - **Styling**: [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework
-- **React**: Interactive components and animations
 - **TypeScript**: Type-safe development
-- **Motion**: Smooth animations and transitions
 - **Deployment**: Vercel with analytics
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 /
@@ -29,59 +26,46 @@ Welcome to my personal portfolio website! This is where I showcase my work, expe
 │   └── fonts/
 │       └── Mona-Sans.woff2
 ├── src/
-│   ├── assets/           # Images and static assets
-│   ├── components/       # Reusable UI components
-│   ├── layouts/          # Page layouts
-│   ├── pages/            # Main page content
-│   ├── styles/           # Global styles
-│   └── utils/            # Helper functions
-├── astro.config.mts      # Astro configuration
-├── package.json          # Dependencies and scripts
-└── tsconfig.json         # TypeScript configuration
+│   ├── assets/              # Images and static assets
+│   ├── components/          # Reusable UI components (Header, Footer, Experience, Project)
+│   ├── layouts/             # Page layouts
+│   ├── pages/
+│   │   └── index.astro      # Home page
+│   └── styles/              # Global styles and design tokens
+├── astro.config.mts         # Astro configuration
+├── package.json             # Dependencies and scripts
+└── tsconfig.json            # TypeScript configuration
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
 - Node.js (v18 or higher)
-- pnpm (recommended) or npm
+- pnpm (recommended)
 
-## 🎨 Design Features
+### Commands
 
-- **Iridescent Background**: Custom animated background using OGL for WebGL effects
-- **Noise Texture**: Subtle noise overlay for texture
-- **Smooth Animations**: Framer Motion for page transitions and micro-interactions
-- **Typography**: Custom font (Mona Sans) for enhanced readability
-- **Color Scheme**: Carefully crafted color palette with dark/light mode support
+```bash
+pnpm install      # Install dependencies
+pnpm dev          # Start the dev server
+pnpm build        # Build for production
+pnpm preview      # Preview the production build
+```
 
-## 📱 Responsive Design
+## Design
 
-The portfolio is fully responsive and optimized for:
+- **Typography**: Mona Sans variable font, with a monospace face for labels and dates
+- **Color**: Neutral grayscale ramp plus one accent, defined as CSS variables in `src/styles/global.css`
+- **Theme**: Light/dark via a `.dark` class, persisted to `localStorage`
 
-- Desktop (1200px+)
-- Tablet (768px - 1199px)
-- Mobile (320px - 767px)
+## Development
 
-## 🔧 Development
+- **Prettier**: Code formatting (with Astro + Tailwind plugins)
+- **Husky + lint-staged**: Pre-commit formatting
+- **TypeScript**: Type safety throughout
 
-### Code Quality
-
-- **Prettier**: Code formatting
-- **Husky**: Git hooks for pre-commit formatting
-- **TypeScript**: Type safety throughout the project
-
-### Performance
-
-- **Astro**: Static site generation for optimal performance
-- **Image Optimization**: Sharp for image processing
-- **Analytics**: Vercel Analytics for performance monitoring
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contact
+## Contact
 
 - **Email**: hello@cameronlopez.me
 - **LinkedIn**: [Cameron Lopez](https://www.linkedin.com/in/camahlopez/)
@@ -90,4 +74,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-Built with ❤️ using [Astro](https://astro.build) and [TailwindCSS](https://tailwindcss.com)
+Built with [Astro](https://astro.build) and [TailwindCSS](https://tailwindcss.com)

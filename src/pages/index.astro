@@ -1,149 +1,92 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Iridescence from "../components/Iridescence";
-import Experince from "../components/Experince.astro";
-import Noise from "../components/Noise.astro";
-import Typewriter from "../components/Typewriter";
+import Experience from "../components/Experience.astro";
 import Project from "../components/Project.astro";
 
-import LinkedinLogo from "../assets/linkedin-logo.svg";
-import InstagramLogo from "../assets/instagram-logo.svg";
-import GithubLogo from "../assets/github-logo.svg";
-
-import comingSoon from "../assets/comingsoon.png";
 import usefilmPicker from "../assets/usefilmpicker.png";
 import teslaToolbox from "../assets/tesla-toolbox.png";
 ---
 
 <Layout>
-  <div id="container" class="h-full">
-    <div class="blur-[100px] fixed top-0 left-0 w-full h-full -z-2">
-      <Iridescence
-        color={[1, 1, 1]}
-        mouseReact={false}
-        amplitude={0.1}
-        speed={0.1}
-        client:load
-      />
-    </div>
-    <Noise
-      className="bg-background dark:bg-background opacity-20 dark:opacity-70 transition-all duration-700 fixed top-0 left-0 w-full h-full -z-1"
-    />
-    <main class="w-full flex justify-center">
-      <div
-        class="flex w-full px-6 lg:w-1/2 items-start mt-15 lg:mt-25 flex-col justify-start space-y-22"
+  <main class="mx-auto max-w-2xl px-6">
+    <!-- INTRO -->
+    <section class="reveal pt-20 pb-8 sm:pt-28">
+      <h1
+        class="text-primary text-3xl font-semibold tracking-tight sm:text-4xl"
       >
-        <!-- ABOUT SECTION -->
-        <div>
-          <h1 class="text-3xl font-bold mb-2 text-primary">
-            <Typewriter speed={50} text="H\\i, I'm Cameron Lopez" client:load />
-          </h1>
-          <h2 id="reveal" class="text-xl mb-4 text-secondary opacity-0">
-            Full-stack Developer
-          </h2>
-          <p id="reveal" class="w-full text-muted opacity-0">
-            I build user-friendly apps using modern Javascript technologies. I'm
-            very passionate about web design and programming; leveraging my
-            skills to create things that improve the quality of life for myself
-            and others. Outside that, running is a big part of my life but I
-            also enjoy reading and snowboarding in my free time and I'm
-            currently working at Tesla as an Engineering Technician!
-          </p>
-        </div>
+        Cameron Lopez
+      </h1>
+      <p class="text-secondary mt-2 text-lg">Full-stack Developer</p>
+      <p class="text-muted mt-6 leading-relaxed">
+        I build user-friendly apps using modern JavaScript technologies. I'm
+        passionate about web design and programming, leveraging my skills to
+        create things that improve the quality of life for myself and others.
+        Outside of that, running is a big part of my life, and I also enjoy
+        reading and snowboarding. I'm currently working at Tesla as an
+        Engineering Technician.
+      </p>
+    </section>
 
-        <!-- EXPERIENCE -->
-        <div id="reveal" class="opacity-0 hidden">
-          <h2 class="text-2xl mb-6 text-primary">Experience</h2>
-          <div class="space-y-6">
-            <Experince
-              title="Engineering Technician II"
-              company="Tesla"
-              timeline="July 2024 - Present"
-              items={[
-                "Developed interactive dashboards to visualize data from MySQL, tracking KPIs, managing headcount, and monitoring production line downtime",
-                "Created an internal all-in-one training website to streamline tracking, scheduling, and sign-up processes, using TypeScript, Remix, TailwindCSS, Drizzle, Git, and Node.js",
-                'Developed a "toolbox" website enabling efficient use of internal Tesla APIs for technician operations, using React Router, TypeScript, TailwindCSS, Git, and Node.js',
-              ]}
-            />
-            <Experince
-              title="Engineering Technician"
-              company="Tesla"
-              timeline="August 2023 - July 2024"
-              items={[
-                "Developed a Microsoft Teams bot to automate the tracking of daily technician tasks and resourceallocation, utilizing Git, MySQL, TypeScript, Microsoft Bot FrameworkSDK, and Node.js.",
-                "Deployed internal serverless applications using Docker and Kubernetes for scalable, efficient hosting.",
-                "Managed project progress and tracked work hours through Jira tickets, ensuring alignment with deadlines and objectives.",
-              ]}
-            />
-          </div>
-        </div>
-
-        <!-- PROJECTS -->
-        <div id="reveal" class="opacity-0 hidden">
-          <h2 class="text-2xl mb-6 text-primary">Projects</h2>
-
-          <div class="flex flex-col space-y-10">
-            <Project
-              title="Tesla Toolbox"
-              link="https://github.com/cahlopez/tesla-toolbox"
-              image={{ location: teslaToolbox, alt: "Tesla Toolbox" }}
-              description="A website built for internal Tesla use. Built to help technicians easily utilize Tesla's internal factory APIs and streamline their workflow."
-              tags={["TypeScript", "React", "TailwindCSS", "Next.js"]}
-            />
-            <Project
-              title="Film Picker"
-              link="http://usefilmpicker.com/"
-              image={{ location: usefilmPicker, alt: "Coming soon image" }}
-              description="A web-app that picks and tracks films for you. It helps you find a film to watch based on your preferences and allows you to keep track of the films that you do watch. "
-              tags={["TypeScript", "Next.js", "TailwindCSS"]}
-            />
-            <!-- <Project
-              title="TreeHouse"
-              image={{ location: comingSoon, alt: "Coming soon image" }}
-              description="A privacy focused social media platform that allows you to anonymously connect with others around you based on GPS."
-            /> -->
-          </div>
-        </div>
-
-        <!-- Contact -->
-        <div
-          id="reveal"
-          class="flex flex-col justify-center w-full h-45 items-center opacity-0 hidden"
-        >
-          <h2 class="text-3xl mb-14 text-primary">
-            I'd love to work with you!
-          </h2>
-
-          <a href="mailto:hello@cameronlopez.me"
-            ><span
-              class="p-2 rounded-2xl bg-radial from-violet-300/60 to-pink-300/60 text-secondary hover:from-violet-400/60 hover:to-pink-400/60 transition-colors duration-100"
-              >Contact me</span
-            ></a
-          >
-        </div>
-
-        <!-- Footer -->
-        <div
-          id="reveal"
-          class="flex flex-row h-14 w-full justify-center lg:justify-between items-center opacity-0 hidden"
-        >
-          <div class="flex flex-row space-x-2 text-primary">
-            <a href="https://www.linkedin.com/in/camahlopez/" target="_blank">
-              <LinkedinLogo width={20} height={20} />
-            </a>
-            <a href="https://github.com/cahlopez" target="_blank">
-              <GithubLogo width={20} height={20} />
-            </a>
-            <a href="https://instagram.com/_cameronlopez" target="_blank">
-              <InstagramLogo width={20} height={20} />
-            </a>
-          </div>
-
-          <p class="text-primary hidden lg:inline">
-            Built with Astro and TailwindCSS
-          </p>
-        </div>
+    <!-- EXPERIENCE -->
+    <section class="reveal pt-16">
+      <h2 class="text-muted mb-8 font-mono text-xs tracking-widest uppercase">
+        Experience
+      </h2>
+      <div>
+        <Experience
+          title="Engineering Technician II"
+          company="Tesla"
+          timeline="Jul 2024 — Present"
+          items={[
+            "Developed interactive dashboards to visualize data from MySQL, tracking KPIs, managing headcount, and monitoring production line downtime",
+            "Created an internal all-in-one training website to streamline tracking, scheduling, and sign-up processes, using TypeScript, Remix, TailwindCSS, Drizzle, Git, and Node.js",
+            'Developed a "toolbox" website enabling efficient use of internal Tesla APIs for technician operations, using React Router, TypeScript, TailwindCSS, Git, and Node.js',
+          ]}
+        />
+        <Experience
+          title="Engineering Technician"
+          company="Tesla"
+          timeline="Aug 2023 — Jul 2024"
+          items={[
+            "Developed a Microsoft Teams bot to automate the tracking of daily technician tasks and resource allocation, utilizing Git, MySQL, TypeScript, Microsoft Bot Framework SDK, and Node.js",
+            "Deployed internal serverless applications using Docker and Kubernetes for scalable, efficient hosting",
+            "Managed project progress and tracked work hours through Jira tickets, ensuring alignment with deadlines and objectives",
+          ]}
+        />
       </div>
-    </main>
-  </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="reveal scroll-mt-20 pt-16">
+      <h2 class="text-muted mb-8 font-mono text-xs tracking-widest uppercase">
+        Selected Work
+      </h2>
+      <div>
+        <Project
+          title="Tesla Toolbox"
+          link="https://github.com/cahlopez/tesla-toolbox"
+          image={{ location: teslaToolbox, alt: "Tesla Toolbox" }}
+          description="A website built for internal Tesla use, helping technicians easily utilize Tesla's internal factory APIs and streamline their workflow."
+          tags={["TypeScript", "React", "TailwindCSS", "Next.js"]}
+        />
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="reveal pt-16">
+      <h2 class="text-muted mb-4 font-mono text-xs tracking-widest uppercase">
+        Contact
+      </h2>
+      <p class="text-secondary leading-relaxed">
+        I'd love to work with you. Reach out at{" "}
+        <a
+          href="mailto:hello@cameronlopez.me"
+          class="text-primary decoration-muted hover:decoration-accent underline underline-offset-4 transition-colors"
+        >
+          hello@cameronlopez.me
+        </a>
+        .
+      </p>
+    </section>
+  </main>
 </Layout>

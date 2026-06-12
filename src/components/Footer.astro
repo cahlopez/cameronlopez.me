@@ -1,0 +1,45 @@
+---
+import LinkedinLogo from "../assets/linkedin-logo.svg";
+import InstagramLogo from "../assets/instagram-logo.svg";
+import GithubLogo from "../assets/github-logo.svg";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-border/60 mt-32 border-t">
+  <div
+    class="text-muted mx-auto flex max-w-2xl flex-col gap-4 px-6 py-8 sm:flex-row sm:items-center sm:justify-between"
+  >
+    <p class="text-sm">&copy; {year} Cameron Lopez</p>
+
+    <div class="flex items-center gap-4">
+      <a
+        href="https://www.linkedin.com/in/camahlopez/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+        class="hover:text-primary transition-colors"
+      >
+        <LinkedinLogo width={18} height={18} />
+      </a>
+      <a
+        href="https://github.com/cahlopez"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+        class="hover:text-primary transition-colors"
+      >
+        <GithubLogo width={18} height={18} />
+      </a>
+      <a
+        href="https://instagram.com/_cameronlopez"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+        class="hover:text-primary transition-colors"
+      >
+        <InstagramLogo width={18} height={18} />
+      </a>
+    </div>
+  </div>
+</footer>

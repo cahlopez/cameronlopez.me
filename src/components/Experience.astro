@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  company: string;
+  timeline: string;
+  items: string[];
+}
+
+const { title, company, timeline, items } = Astro.props;
+---
+
+<article
+  class="border-border grid gap-2 border-t py-6 first:border-t-0 first:pt-0 sm:grid-cols-[8rem_1fr] sm:gap-6"
+>
+  <p class="text-muted font-mono text-xs sm:pt-1">{timeline}</p>
+
+  <div>
+    <h3 class="text-primary text-base font-medium">{title}</h3>
+    <p class="text-secondary mb-3 text-sm">{company}</p>
+    <ul class="space-y-2">
+      {
+        items.map((item) => (
+          <li class="text-muted relative pl-4 text-sm leading-relaxed">
+            <span class="text-border absolute left-0">&mdash;</span>
+            {item}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</article>

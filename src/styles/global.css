@@ -12,31 +12,78 @@
 }
 
 :root {
-  --background: oklch(0.94 0.03 295);
-  --primary: oklch(0.14 0 286);
-  --secondary: oklch(0.27 0.01 286);
-  --muted: oklch(0.37 0.01 286);
+  --background: oklch(0.99 0 0);
+  --surface: oklch(0.97 0 0);
+  --primary: oklch(0.17 0 0);
+  --secondary: oklch(0.34 0 0);
+  --muted: oklch(0.55 0 0);
+  --border: oklch(0.9 0 0);
+  --accent: oklch(0.55 0.18 264);
 }
 
 .dark {
-  --background: oklch(0.14 0 286);
-  --primary: oklch(0.97 0 286);
-  --secondary: oklch(0.92 0 286);
-  --muted: oklch(0.87 0.01 286);
+  --background: oklch(0.16 0 0);
+  --surface: oklch(0.2 0 0);
+  --primary: oklch(0.97 0 0);
+  --secondary: oklch(0.82 0 0);
+  --muted: oklch(0.62 0 0);
+  --border: oklch(0.28 0 0);
+  --accent: oklch(0.74 0.15 264);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+
+  --font-sans:
+    "Mona Sans", Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+    Arial, sans-serif;
+  --font-mono:
+    ui-monospace, "SF Mono", "SFMono-Regular", "JetBrains Mono", Menlo, Monaco,
+    Consolas, "Liberation Mono", monospace;
 }
 
 html {
-  font-family:
-    "Mona Sans", Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
-    Arial, sans-serif;
+  font-family: var(--font-sans);
 
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
+
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--primary);
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--background);
+}
+
+/* Scroll reveal */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
