@@ -5,6 +5,7 @@ import Project from "../components/Project.astro";
 
 import usefilmPicker from "../assets/usefilmpicker.png";
 import teslaToolbox from "../assets/tesla-toolbox.png";
+import gallry from "../assets/gallry.png";
 ---
 
 <Layout>
@@ -62,6 +63,13 @@ import teslaToolbox from "../assets/tesla-toolbox.png";
         Selected Work
       </h2>
       <div>
+        <Project
+          title="Gallry"
+          link="https://gallry.space"
+          image={{ location: gallry, alt: "Gallry" }}
+          description="A photo-gallery platform for photographers to deliver client galleries through a single link — no client accounts, just a branded portfolio with custom domains, watermarks, and storage that scales."
+          tags={["TypeScript", "Remix", "Postgres", "R2", "Node.js"]}
+        />
         <Project
           title="Tesla Toolbox"
           link="https://github.com/cahlopez/tesla-toolbox"
