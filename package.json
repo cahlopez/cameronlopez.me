@@ -10,6 +10,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.0.9",
     "@vercel/analytics": "^1.5.0",
     "astro": "^6.4.6",
