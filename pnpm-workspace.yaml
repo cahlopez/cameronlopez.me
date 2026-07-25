@@ -9,3 +9,5 @@ overrides:
   mdast-util-to-hast: ">=13.2.1"
   yaml: ">=2.8.3"
   esbuild: ">=0.28.1"
+  svgo: ">=4.0.2"
+  js-yaml: ">=4.3.0 <5.0.0"
